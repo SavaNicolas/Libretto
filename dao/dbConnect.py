@@ -5,20 +5,6 @@ import mysql.connector
 
 class DBConnect:
 
-    # @classmethod
-    # def getConnection(cls):
-    #     try:
-    #         cnx = mysql.connector.connect(
-    #             user = "root",
-    #             password = "rootroot",
-    #             host = "127.0.0.1",
-    #             database = "libretto")
-    #         return cnx
-    #     except mysql.connector.Error as err:
-    #         print("Non riesco a collegarmi al database")
-    #         print(err)
-    #         return None
-
     def __init__(self):
         raise RuntimeError("Non creare una istanza di questa classe per favore!")
 
@@ -32,7 +18,7 @@ class DBConnect:
                     pool_size=3,
                     pool_name="myPool",
                     option_files=f"{pathlib.Path(__file__).resolve().parent}/connection.cfg"
-                )
+                ) #dentro connection abbiamo il file per la connessione
             except mysql.connector.Error as err:
                 print("Something is wrong in dbconnect")
                 print(err)
